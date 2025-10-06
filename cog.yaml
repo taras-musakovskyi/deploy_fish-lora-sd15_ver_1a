@@ -1,23 +1,14 @@
-# Configuration for Cog ⚙️
-# Reference: https://github.com/replicate/cog/blob/main/docs/yaml.md
-
 build:
-  # GPU configuration
   gpu: true
   cuda: "11.8"
-  
-  # Base image with CUDA support
   python_version: "3.11"
-  
-# System packages
+
   system_packages:
     - "libgl1-mesa-glx"
-    - "libglib2.0-0"
 
   run:
-    - "pip install --upgrade pip"
-    - "pip install --resume-retries 80 diffusers==0.25.0 transformers==4.36.0 accelerate==0.25.0 safetensors==0.4.1 peft==0.7.1 pillow==10.1.0"
-    - "pip install --resume-retries 80 xformers"
+    - "pip install torch==2.1.0"
+    - "pip install diffusers==0.25.0 transformers==4.36.0 accelerate==0.25.0 peft==0.7.1"
+    - "pip install huggingface-hub==0.20.0"
 
-# Prediction interface
 predict: "predict.py:Predictor"
