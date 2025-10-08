@@ -38,8 +38,8 @@ class Predictor(BasePredictor):
         adapter_config = {
             "base_model_name_or_path": MODEL_NAME,
             "peft_type": "LORA",
-            "r": 16,
-            "lora_alpha": 32,
+            "r": 32,
+            "lora_alpha": 64,
             "target_modules": ["to_k", "to_q", "to_v", "to_out.0"],
             "lora_dropout": 0.1,
         }
